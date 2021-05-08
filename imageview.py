@@ -34,8 +34,6 @@ class CA(tk.Frame):
         self.c=tk.Canvas(f,width=1550,
         height=850,bg = "cyan",
         scrollregion=(0,0,1113400,1113400))
-        # self.title('スクロール')
-        # self.geometry(100+100)
         self.c.grid(column=0, row=0,
         sticky='nsew')
     
@@ -56,8 +54,7 @@ class CA(tk.Frame):
         f.grid_columnconfigure(0,weight=1)
         f.grid_rowconfigure(0,weight=1)
         f.pack(fill=tk.BOTH,expand=1)
-    # var = StringVar()
-    # var.set('normal')
+
     var = 'who'
     def print_varsize(self):
         import types
@@ -80,14 +77,9 @@ class CA(tk.Frame):
         c.c.delete("window")
         
         page =0
-        # c=CA()
-        # y=0
 
         ff=len(filenames)
-        # if(ff>=50):
-        # print('分割')
-        # for i in filenames:
-            # print(i)\
+
         # # # test用
         a = filenames
         s = SList.Slice_list(a,50)
@@ -101,8 +93,6 @@ class CA(tk.Frame):
             imHeight=524
             xWidth = 10
             x = xWidth
-            # 1425
-            # 1536
         else:
             print('2枚表示')
             viewCount = 1
@@ -121,7 +111,7 @@ class CA(tk.Frame):
             # print(index*50+'/'+ff)#取り込み状況を表示
             for index, j in enumerate(i):
                 # print('Jdesu'+str(j))
-        # print(SList.slice_list_file)
+                # print(SList.slice_list_file)
     
             # for n in filenames:
                 print(index)
@@ -139,55 +129,41 @@ class CA(tk.Frame):
                 anchor=tk.NW, window = buttons[index])
                 # c.c.create_image(x, y,
                 # anchor=tk.NW, image=img)
-                # yield c.c.create_image(x, y,
-                # anchor=tk.NW, image=img)
                 
                 if(page<viewCount):
                     page+=1
                     x += imWidth+5
-                    # print('true')
-                    
                 else:
                     page=0
                     x=xWidth
                     y+=imHeight+5
-                    # print('no')
+
             else:
-                # imgs = []
-                print(buttons)
+                # forが終わったら
                 print('done')
-                # del filenames
                 
 
         print('ファイル数 : '+str(ff))
-# yリセット用ボタン
-    def button3_clicked(self,num,buttons,index): 
-        print(num)
+# y 保存用ボタン
+    def button3_clicked(self,location,buttons,index): 
+        print(location)
         print(buttons)
         print(index)
         try :
-            shutil.move(num,'R:/Install/xampp/htdocs/Python/scraip/jpg4')
+            shutil.move(location,'R:/Install/xampp/htdocs/Python/scraip/jpg4')
         except shutil.Error:
             print('同じ名前のファイルがあります')
-
-        # global filenames2#クラスを超えて利用可能な変数です
-        # global ff2 #クラスを超えて利用可能な変数です
-        # fTyp = [('', '*')]
-        # # iDir = os.path.abspath(os.path.dirname(__file__))#現在のディレクトリで開く
-        # iDir = os.path.abspath(os.path.dirname('R:/Install/xampp/htdocs/Python/scraip/jpg4/'))
-        # filenames = tkFileDialog.askopenfilenames(filetypes=fTyp, initialdir=iDir)
         
         
 # t 2回目の選択は初期化する
 # t フォルダ毎取り込む機能
-# t クリックしたら保存する
+## クリックしたら保存する
 # y画像を押したら拡大する
 # y拡大してもスクロールできる
 # yスライドショーから戻れるように
 # yスライドショーをストップ、巻き戻し
+
 # メインプログラム
-
-
 if __name__ == '__main__':
     # flameをwindowに入れ込む
     root = Tk()
@@ -240,11 +216,10 @@ if __name__ == '__main__':
 # flameを入れ子にして画面の初期位置を変更した
 # 読み込みファイル数を表示したいが、終了後のみ表示される
 # 2枚表示を可能にした
-# あとは保存機能
-# !表示した画像にbuttonインデックスを振って、filenames[index]を
-    # 対象にすれば軽くできそう
-# 閲覧後にそのファオルダを消したい
-# ウィジェットの表示、非表示切り替え
+# tウィジェットの表示、非表示切り替え
 # 0505
+# クリックで保存可能
 # メモリ開放できない、5000枚でエラーになる
+# 0508
+# 閲覧中に全体の割合を知りたい
 
